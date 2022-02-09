@@ -5,10 +5,12 @@ import java.awt.event.ActionEvent;
 public class Card implements Drawable, Updateable {
     private int suite;
     private int value;
+    private boolean isShowing;
 
     public Card(int suite, int value) {
         this.suite = suite;
         this.value = value;
+        this.isShowing = false;
     }
 
     public int getSuit() {
@@ -21,7 +23,6 @@ public class Card implements Drawable, Updateable {
 
     @Override
     public void update(ActionEvent a) {
-        
         
     }
 
