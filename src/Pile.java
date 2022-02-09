@@ -15,4 +15,10 @@ public abstract class Pile implements Drawable, Updateable {
     public Pile(){
         ArrayList<Card> cards = new ArrayList<>();
     }
+
+    public void add(Card x){ 
+        this.add(x); // I'm not sure if this would work...
+    }
+
+    
 }
