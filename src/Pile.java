@@ -1,26 +1,29 @@
 import java.util.ArrayList;
-/** A Pile is a collection of cards.  This needs to be
+
+/**
+ * A Pile is a collection of cards. This needs to be
  * Drawable because it will be shown on the GUI. Put code
- * here that ALL Piles share.  The ways in which Piles are 
- * different belong in the subclasses.  The draw method should 
- * be implemented here.  Updateable may have empty implementation.
+ * here that ALL Piles share. The ways in which Piles are
+ * different belong in the subclasses. The draw method should
+ * be implemented here. Updateable may have empty implementation.
  * You WILL write subclasses of Pile
  */
 public abstract class Pile implements Drawable, Updateable {
-    
-    public abstract boolean canAddCard(Card c);
-    //ArrayList<Card> cards = new ArrayList<>();
 
+  public abstract boolean canAddCard(Card c);
 
-    public Pile(){
-        ArrayList<Card> cards = new ArrayList<>();
-    }
+  ArrayList<Card> cards;
+  ArrayList<Card> deck;
 
-    public void add(Card x){ 
-        this.add(x); // I'm not sure if this would work...
-    }
+  public Pile() {
+    cards = new ArrayList<>();
+  }
 
-    public void shuffle() {
+  public void add(Card x) {
+    this.add(x); // I'm not sure if this would work...
+  }
+
+  public void shuffle() {
         /* Randomizes the cards in this deck. 
       * You must use the following algorithm:
       * If the size is < 2, return;
@@ -42,7 +45,6 @@ public abstract class Pile implements Drawable, Updateable {
           Card x = cards.get(0);
           cards.set(0, cards.get(1));
           cards.set(1, x);
-  
         }
         return;
       }
@@ -54,13 +56,17 @@ public abstract class Pile implements Drawable, Updateable {
         if(x != y){
           if(Math.random() < 0.5){
             Card yo = cards.get(x);
-            cards.set(x, cards.get(1));
+            cards.set(x, cards.get(y));
             cards.set(y, yo);
-  
+          }
         }
-        }
-      return;
+        return;
+      }
     }
-    }
+  }
+
+
+
+
 
 }
