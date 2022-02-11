@@ -18,6 +18,10 @@ public class KlondikeGame {
 	private Timer timer = new Timer(DELAY_INTERVAL, null);
 	//#endregion vars
 	
+	
+
+
+	
 	public static void main(String[] args) {
 		new KlondikeGame().start();
 	}
