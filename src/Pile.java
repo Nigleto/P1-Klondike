@@ -9,24 +9,22 @@ import java.util.ArrayList;
 public abstract class Pile implements Drawable, Updateable {
     
     public abstract boolean canAddCard(Card c);
-    //ArrayList<Card> cards = new ArrayList<>();
+    private ArrayList<Card> cards;
 
 
     public Pile(){
-        ArrayList<Card> cards = new ArrayList<>();
+      cards = new ArrayList<>();
     }
 
     public void add(Card x){ 
         this.add(x); // I'm not sure if this would work...
     }
 
-    private void initDeck() {
-      for(int i =1; i<5;i++){ // 5 since there are 4 suits in a deck
-        for(int x=1; x<15;x++){ //15 since there are 14 cards in each suit
-          add(new Card(i, x));
-        } 
-      }
+    public ArrayList<Card> getPile(Pile x){
+      return cards;
     }
+
+    
 
     public void shuffle() {
         /* Randomizes the cards in this deck. 
@@ -40,7 +38,7 @@ public abstract class Pile implements Drawable, Updateable {
     boolean coin = false;
     
   
-    for(int i=0; i<deck.size(); i++){
+    for(int i=0; i<cards.size(); i++){
   
       if(cards.size() < 2){
         return;
