@@ -10,8 +10,8 @@ import java.io.IOException;
 public class Card implements Drawable, Updateable {
     private int suite;
     private int value;
-    private boolean isShowing = false;
-    private int isBlack;
+    private boolean isShowing;
+    private boolean isBlack;
     private Image cardFront;
     private Image cardBack;
     private int x, y; //x and y coordinatese of where the card is on the board
@@ -98,6 +98,10 @@ public class Card implements Drawable, Updateable {
 
     public int getY() {
         return this.y;
+    }
+
+    public void setFacing(boolean b) {
+        isShowing = b;
     }
 	
 
