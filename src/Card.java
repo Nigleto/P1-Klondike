@@ -1,15 +1,19 @@
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.awt.Image;
 import javax.imageio.ImageIO;
+import java.io.IOException;
+
 
 /** represents a playing card that can draw itself. */
 public class Card implements Drawable, Updateable {
     private int suite;
     private int value;
-    private boolean isShowing;
+    private boolean isShowing = false;
     private int isBlack;
-    private int currentImage;
+    private Image cardFront;
+    private Image cardBack;
     private int x, y; //x and y coordinatese of where the card is on the board
 
     public Card(int suite, int value) {
@@ -29,15 +33,58 @@ public class Card implements Drawable, Updateable {
 
     @Override
     public void update(ActionEvent a) {
-        
+        // maybe upon a click, assign new locations
     }
 
     @Override
     public void draw(Graphics g) {
-        if (this.suite == 0) {
-            currentImage = ImageIO.read(new File("images/cards/dj.png"));
-            g.drawImage("images/cards/" + "s" + this.value + ".png");
-            
+        String cardInfo = "images/cards/";
+        switch(this.suite) {
+            case 0:
+                cardInfo += "s";
+                break;
+            case 1:
+                cardInfo += "h";
+                break;
+            case 2:
+                cardInfo += "d";
+                break;
+            case 3:
+                cardInfo += "c";
+                break;
+        }
+
+        if (this.suite < 11) {
+            cardInfo += this.value;
+        }
+        else {
+            switch(this.value) {
+                case 11:
+                    cardInfo += "j";
+                    break;
+                case 12:
+                    cardInfo += "q";
+                    break;
+                case 13:
+                    cardInfo += "k";
+                    break;
+            }
+        }
+
+        cardInfo += ".png";
+
+        try {
+			cardFront = ImageIO.read(new File(cardInfo));
+			cardBack = ImageIO.read(new File("images/cards/b1fv.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		if (isShowing = true) {
+            g.drawImage(cardFront, this.x, this.y, null);
+        }
+        else {
+            g.drawImage(cardBack, this.x, this.y, null);
         }
     }
 
