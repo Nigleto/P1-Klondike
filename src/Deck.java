@@ -6,19 +6,19 @@ public class Deck extends Pile{
     private Pile deck;
  
     public Deck(){
-        deck = new Pile();
+        deck = new Pile(); //pile is abstract so we cant do this
         initDeck();
     }
 
     private void initDeck() {
-        for(int i =1; i<5;i++){ // 5 since there are 4 suits in a deck
-          for(int x=1; x<15;x++){ //15 since there are 14 cards in each suit
-            deck.add(new Card(i, x));
+        for(int i =0; i<5;i++){ // 5 since there are 4 suits in a deck
+          for(int x=2 ; x<12;x++){ //15 since there are 14 cards in each suit
+            deck.add(new Card(i, x+2));
           } 
         }
+        deck.shuffle();
       }
 
-    deck.shuffle();
 
     @Override
     public void draw(Graphics g) {
