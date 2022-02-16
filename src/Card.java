@@ -4,6 +4,8 @@ import java.io.File;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.awt.*;
+import java.awt.event.MouseEvent;
 
 
 /** represents a playing card that can draw itself. */
@@ -16,10 +18,12 @@ public class Card implements Drawable, Updateable {
     private Image cardBack;
     private int x, y; //x and y coordinatese of where the card is on the board
 
-    public Card(int suite, int value) {
+    public Card(int suite, int value, int x, int y) {
         this.suite = suite; //0 for spades, 1 for hearts, 2 for diamonds, 3 for clubs
         this.value = value; //1 for ace, 2-10 for regular cards, 11-13 for Jack, Queen, King
         this.isShowing = false;
+        this.x = x;
+        this.y = y;
     }
 
     public int getSuit() {
@@ -33,7 +37,8 @@ public class Card implements Drawable, Updateable {
 
     @Override
     public void update(ActionEvent a) {
-        // maybe upon a click, assign new locations
+        
+
     }
 
     @Override
