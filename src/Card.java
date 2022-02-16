@@ -38,7 +38,6 @@ public class Card implements Drawable, Updateable {
     @Override
     public void update(ActionEvent a) {
         
-
     }
 
     @Override
