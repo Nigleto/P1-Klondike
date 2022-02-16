@@ -6,14 +6,15 @@ import java.util.ArrayList;
  * be implemented here.  Updateable may have empty implementation.
  * You WILL write subclasses of Pile
  */
-public abstract class Pile implements Drawable, Updateable {
+public class Pile{
     
-    public abstract boolean canAddCard(Card c);
+    //public boolean canAddCard(Card c);
     private ArrayList<Card> cards;
 
 
     public Pile(){
       cards = new ArrayList<>();
+
     }
 
     public void add(Card x){ 
