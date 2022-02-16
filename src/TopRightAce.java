@@ -9,7 +9,6 @@ public abstract class TopRightAce extends Pile {
 
     public void addCardPile(Card x){
         if(x.getSuit() == 0){
-            int spadeSize = spadeAcePile.getPile().size();
             if(spadeAcePile.getPile().get(-1).getValue() == x.getValue()-1){ // I did .get(-1) because I was trying to get the last card.
                 spadeAcePile.getPile().add(x);
             }
