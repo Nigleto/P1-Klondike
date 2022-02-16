@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.awt.Rectangle;
 
 import javax.imageio.ImageIO;
 
@@ -42,8 +43,8 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
 
-		// Card test1 = new Card(0, 5, 900, 400); //tests using methods built in the card class
-		// test1.draw(g);
+		Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
+		test1.draw(g);
 	}
 
 
@@ -55,7 +56,9 @@ public class GameBoard implements Drawable, Updateable {
 	 * @param me
 	 */
 	public void justClicked(MouseEvent me) {
+		// Rectangle hitBox = new Rectangle()
 		Point p = me.getPoint();
+		
 		System.out.println("You just clicked "+p);
 
 
