@@ -21,8 +21,8 @@ public class Pile{
         this.add(x); // I'm not sure if this would work...
     }
 
-    public ArrayList<Card> getPile(Pile x){
-      return cards;
+    public ArrayList<Card> getPile(){
+      return this.cards;
     }
 
     
