@@ -41,6 +41,9 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(testImage, 30, 80, null);
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
+
+		// Card test1 = new Card(0, 5, 900, 400); 
+		// test1.draw(g);
 	}
 
 
