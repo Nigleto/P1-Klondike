@@ -27,6 +27,16 @@ public abstract class Pile implements Drawable, Updateable{
       return this.cards;
     }
 
+    public int getSize() {
+      return this.cards.size();
+    }
+
+    public Card deal() {
+      Card c = this.getPile().get(0);
+      this.getPile().remove(0);
+      return c;
+    }
+
     
 
     public void shuffle() {
@@ -66,11 +76,10 @@ public abstract class Pile implements Drawable, Updateable{
             Card yo = cards.get(x);
             cards.set(x, cards.get(1));
             cards.set(y, yo);
-  
-        }
+          }
         }
       return;
-    }
+      }
     }
   }
 
