@@ -107,6 +107,15 @@ public class Card implements Drawable, Updateable {
     public void setFacing(boolean b) {
         isShowing = b;
     }
+
+    public boolean isBlack() {
+        if (isBlack == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 	
 
 

@@ -37,6 +37,15 @@ public abstract class Pile implements Drawable, Updateable{
       return c;
     }
 
+    public boolean isAltColors(Card added) { //checks if they are alternating colors
+      if (this.cards.get(cards.size()-1).isBlack() != added.isBlack()) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
     
 
     public void shuffle() {
