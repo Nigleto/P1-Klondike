@@ -61,6 +61,9 @@ public class GameBoard implements Drawable, Updateable {
 		Rectangle hitBox = new Rectangle(me.getX(), me.getY(), 71, 96); 
 		//me.getX and me.getY apply to the position of the cursor, not the card position (we want the card's position)
 		Point p = me.getPoint();
+		
+		//an if statement here to make sure the click is within the hitbox, if so, validate the click
+
 		System.out.println("You just clicked "+p);
 
 
