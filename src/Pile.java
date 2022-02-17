@@ -21,9 +21,18 @@ public abstract class Pile implements Drawable, Updateable{
         this.add(x); // I'm not sure if this would work...
     }
 
+    public Card retrieveCard(int i) {
+      return this.cards.get(i);
+    }
+
+    public void addPile(Pile p) {
+      for (int i = p.getSize()-1; i >= 0; i--) {
+        this.cards.add(p.retrieveCard(i));
+      }
+    }
+
 
     public ArrayList<Card> getPile(){ // this method gets the arraylist of the pile we use it with.
-
       return this.cards;
     }
 

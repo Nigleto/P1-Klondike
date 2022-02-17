@@ -34,6 +34,9 @@ public class Card implements Drawable, Updateable {
         return this.value;
     }
 
+    public boolean faceUp() {
+        return this.isShowing;
+    }
 
     @Override
     public void update(ActionEvent a) {
