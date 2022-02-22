@@ -21,8 +21,42 @@ public class Pile{
         this.add(x); // I'm not sure if this would work...
     }
 
+<<<<<<< HEAD
     public ArrayList<Card> getPile(){
+=======
+    public Card retrieveCard(int i) {
+      return this.cards.get(i);
+    }
+
+    public void addPile(Pile p) {
+      for (int i = p.getSize()-1; i >= 0; i--) {
+        this.cards.add(p.retrieveCard(i));
+      }
+    }
+
+
+    public ArrayList<Card> getPile(){ // this method gets the arraylist of the pile we use it with.
+>>>>>>> 85f1012b83b9ea4b41b45c15db13186d67eaf07d
       return this.cards;
+    }
+
+    public int getSize() {
+      return this.cards.size();
+    }
+
+    public Card deal() {
+      Card c = this.getPile().get(0);
+      this.getPile().remove(0);
+      return c;
+    }
+
+    public boolean isAltColors(Card added) { //checks if they are alternating colors
+      if (this.cards.get(cards.size()-1).isBlack() != added.isBlack()) {
+        return true;
+      }
+      else {
+        return false;
+      }
     }
 
     
@@ -64,11 +98,10 @@ public class Pile{
             Card yo = cards.get(x);
             cards.set(x, cards.get(1));
             cards.set(y, yo);
-  
-        }
+          }
         }
       return;
-    }
+      }
     }
   }
 
