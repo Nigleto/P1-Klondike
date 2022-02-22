@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * be implemented here.  Updateable may have empty implementation.
  * You WILL write subclasses of Pile
  */
-public abstract class Pile implements Drawable, Updateable{
+public class Pile{
     
     //public boolean canAddCard(Card c);
     private ArrayList<Card> cards;
@@ -21,38 +21,8 @@ public abstract class Pile implements Drawable, Updateable{
         this.add(x); // I'm not sure if this would work...
     }
 
-    public Card retrieveCard(int i) {
-      return this.cards.get(i);
-    }
-
-    public void addPile(Pile p) {
-      for (int i = p.getSize()-1; i >= 0; i--) {
-        this.cards.add(p.retrieveCard(i));
-      }
-    }
-
-
-    public ArrayList<Card> getPile(){ // this method gets the arraylist of the pile we use it with.
+    public ArrayList<Card> getPile(){
       return this.cards;
-    }
-
-    public int getSize() {
-      return this.cards.size();
-    }
-
-    public Card deal() {
-      Card c = this.getPile().get(0);
-      this.getPile().remove(0);
-      return c;
-    }
-
-    public boolean isAltColors(Card added) { //checks if they are alternating colors
-      if (this.cards.get(cards.size()-1).isBlack() != added.isBlack()) {
-        return true;
-      }
-      else {
-        return false;
-      }
     }
 
     
@@ -94,10 +64,11 @@ public abstract class Pile implements Drawable, Updateable{
             Card yo = cards.get(x);
             cards.set(x, cards.get(1));
             cards.set(y, yo);
-          }
+  
+        }
         }
       return;
-      }
+    }
     }
   }
 
