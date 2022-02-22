@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 public class GameBoard implements Drawable, Updateable {
 	
 
-	Image testImage, backImage;
+	Image testImage, backImage, emptyIndicator;
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
 	
 	 
@@ -25,6 +25,9 @@ public class GameBoard implements Drawable, Updateable {
 		try {
 			testImage = ImageIO.read(new File("images/cards/dj.png"));
 			backImage = ImageIO.read(new File("images/cards/b1fv.png"));
+			BufferedImage sheet = ImageIO.read(new File("images/cards/cardsheet.png"));
+			emptyIndicator = sheet.getSubimage(71*10, 96*4, 71, 96);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -44,6 +47,13 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
 
+		g.drawImage(emptyIndicator, 900, 80, null);
+		g.drawImage(emptyIndicator, 900, 20, null);
+		g.drawImage(emptyIndicator, 900, 20, null);
+		g.drawImage(emptyIndicator, 900, 20, null);
+	
+
+		
 		
 		// Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
 		// test1.draw(g);
@@ -59,6 +69,7 @@ public class GameBoard implements Drawable, Updateable {
 	 */
 	public void justClicked(MouseEvent me) { //card width: 71, card height: 96
 		Rectangle hitBox = new Rectangle(me.getX(), me.getY(), 71, 96); 
+
 		//me.getX and me.getY apply to the position of the cursor, not the card position (we want the card's position)
 		Point p = me.getPoint();
 		
