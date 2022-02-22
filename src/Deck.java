@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 
 public class Deck extends Pile{
-    private Pile deck;
+    protected Pile deck;
  
     public Deck(){
         //deck = new Pile(); //pile is abstract so we cant do this
@@ -20,17 +20,17 @@ public class Deck extends Pile{
       }
 
 
-    // @Override
-    // public void draw(Graphics g) {
-    //     // TODO Auto-generated method stub
+    @Override
+    public void draw(Graphics g) {
+        // TODO Auto-generated method stub
         
-    // }
+    }
 
-    // @Override
-    // public void update(ActionEvent a) {
-    //     // TODO Auto-generated method stub
+    @Override
+    public void update(ActionEvent a) {
+        // TODO Auto-generated method stub
         
-    // }
+    }
 
     // @Override
     // public boolean canAddCard(Card c) {

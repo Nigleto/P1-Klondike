@@ -34,10 +34,13 @@ public class Card implements Drawable, Updateable {
         return this.value;
     }
 
+    public boolean faceUp() {
+        return this.isShowing;
+    }
 
     @Override
     public void update(ActionEvent a) {
-        
+        //updates location?
     }
 
     @Override
@@ -107,7 +110,14 @@ public class Card implements Drawable, Updateable {
     public void setFacing(boolean b) {
         isShowing = b;
     }
+
+    public boolean isBlack() {
+        if (isBlack == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 	
-
-
 }

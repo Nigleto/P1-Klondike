@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
@@ -43,8 +44,9 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
 
-		Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
-		test1.draw(g);
+		
+		// Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
+		// test1.draw(g);
 	}
 
 
@@ -55,10 +57,13 @@ public class GameBoard implements Drawable, Updateable {
 	 * the next click will attempt a move (maybe).
 	 * @param me
 	 */
-	public void justClicked(MouseEvent me) {
-		// Rectangle hitBox = new Rectangle()
+	public void justClicked(MouseEvent me) { //card width: 71, card height: 96
+		Rectangle hitBox = new Rectangle(me.getX(), me.getY(), 71, 96); 
+		//me.getX and me.getY apply to the position of the cursor, not the card position (we want the card's position)
 		Point p = me.getPoint();
 		
+		//an if statement here to make sure the click is within the hitbox, if so, validate the click
+
 		System.out.println("You just clicked "+p);
 
 
