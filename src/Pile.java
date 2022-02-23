@@ -14,7 +14,6 @@ public class Pile{
 
     public Pile(){
       cards = new ArrayList<>();
-
     }
 
     public void add(Card x){ 

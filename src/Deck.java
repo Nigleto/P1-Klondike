@@ -4,9 +4,12 @@ import java.util.*;
 
 public class Deck extends Pile{
     private Pile deck;
+    private int x, y;
  
-    public Deck(){
-        //deck = new Pile(); //pile is abstract so we cant do this
+    public Deck(int x, int y){
+        this.x = x;
+        this.y = y;
+        deck = new Pile(); 
         initDeck();
     }
 

@@ -42,26 +42,24 @@ public class GameBoard implements Drawable, Updateable {
 		g.fillRect(0, 0, 3000, 2000);
 		
 		// this is just to test drawing a card
-		g.drawImage(testImage, 30, 80, null);
-		g.drawImage(backImage, 100, 80, null);
-		g.drawImage(backImage, 105, 100, null);
+		// g.drawImage(testImage, 30, 80, null);
+		// g.drawImage(backImage, 100, 80, null);
+		// g.drawImage(backImage, 105, 100, null);
+		g.drawImage(emptyIndicator, 20, 80, null); //deck 
+		g.drawImage(emptyIndicator, 120, 80, null); //drawn pile
 
-		g.drawImage(emptyIndicator, 600, 200, null);
-		g.drawImage(emptyIndicator, 691, 200, null);
-		g.drawImage(emptyIndicator, 782, 200, null);
-		g.drawImage(emptyIndicator, 873, 200, null);
-
-		for (int i = 0; i < 4; i++) {
-			g.drawImage(emptyIndicator, (600+(i*71)), 80, null);
+		for (int i = 0; i < 4; i++) { //ace pile
+			g.drawImage(emptyIndicator, (600+(i*91)), 80, null);
 		}
 
-		// for (int i = 0; i < 7; i ++) {
-		// 	g.drawImage(emptyIndicator, (220+(i*71)), 300, null);
-		// }
-	
+		for (int i = 0; i < 7; i ++) { //playing piles
+			g.drawImage(emptyIndicator, (220+(i*80)), 300, null);
+		}
 
-		
-		
+
+
+
+
 		// Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
 		// test1.draw(g);
 		// Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
