@@ -6,13 +6,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.Rectangle;
-
+import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public class GameBoard implements Drawable, Updateable {
 	
 
-	Image testImage, backImage, emptyIndicator;
+	Image testImage, backImage, emptyIndicator;	
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
 	
 	 
@@ -46,18 +46,26 @@ public class GameBoard implements Drawable, Updateable {
 		g.drawImage(backImage, 100, 80, null);
 		g.drawImage(backImage, 105, 100, null);
 
-		g.drawImage(emptyIndicator, 900, 80, null);
-		g.drawImage(emptyIndicator, 900, 20, null);
-		g.drawImage(emptyIndicator, 900, 20, null);
-		g.drawImage(emptyIndicator, 900, 20, null);
+		g.drawImage(emptyIndicator, 600, 200, null);
+		g.drawImage(emptyIndicator, 691, 200, null);
+		g.drawImage(emptyIndicator, 782, 200, null);
+		g.drawImage(emptyIndicator, 873, 200, null);
+
+		for (int i = 0; i < 4; i++) {
+			g.drawImage(emptyIndicator, (600+(i*71)), 80, null);
+		}
+
+		// for (int i = 0; i < 7; i ++) {
+		// 	g.drawImage(emptyIndicator, (220+(i*71)), 300, null);
+		// }
 	
 
 		
 		
 		// Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
 		// test1.draw(g);
-		Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
-		test1.draw(g);
+		// Card test1 = new Card(0, 5, 0, 0); //tests using methods built in the card class
+		// test1.draw(g);
 	}
 
 
