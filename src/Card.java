@@ -86,7 +86,7 @@ public class Card implements Drawable, Updateable {
 
     }
 
-    public int getSuit() {
+    public int getSuite() {
         return this.suite;
     }
 
@@ -168,6 +168,12 @@ public class Card implements Drawable, Updateable {
         isShowing = b;
     }
 	
+    public Rectangle getHitBox() {
+        return this.hitbox;
+    }
 
+    public boolean isBlack() {
+        return isBlack;
+    }
 
 }

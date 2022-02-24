@@ -8,12 +8,21 @@ import java.util.ArrayList;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameBoard implements Drawable, Updateable {
 	
 
 	Image testImage, backImage, emptyIndicator;	
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
+	private Deck d;
+	private Pile drawnPile;
+	private Pile playPile;
+	private Pile sPile;
+	private Pile hPile;
+	private Pile dPile;
+	private Pile cPile;
 	
 	 
 	private int numdraws=0;
@@ -22,10 +31,18 @@ public class GameBoard implements Drawable, Updateable {
 	
 	public GameBoard() {
 		try {
-			testImage = ImageIO.read(new File("images/cards/dj.png"));
-			backImage = ImageIO.read(new File("images/cards/b1fv.png"));
+			// testImage = ImageIO.read(new File("images/cards/dj.png"));
+			// backImage = ImageIO.read(new File("images/cards/b1fv.png"));
 			BufferedImage sheet = ImageIO.read(new File("images/cards/cardsheet.png"));
 			emptyIndicator = sheet.getSubimage(71*10, 96*4, 71, 96);
+			d = new Deck(20, 80);
+			drawnPile = new DrawnCards(120, 80);
+			sPile = new TopRightAce(0, 600, 80);
+			hPile = new TopRightAce(1, 691, 80);
+			dPile = new TopRightAce(2, 782, 80);
+			cPile = new TopRightAce(3, 873, 80);
+
+		
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -37,7 +54,7 @@ public class GameBoard implements Drawable, Updateable {
 	 * draw themselves.  This should NOT change the Objects
 	 */
 	public void draw(Graphics g) {
-		numdraws++;
+		// numdraws++;
 		g.setColor(new Color(40, 155, 70));
 		g.fillRect(0, 0, 3000, 2000);
 		
@@ -55,6 +72,10 @@ public class GameBoard implements Drawable, Updateable {
 		for (int i = 0; i < 7; i ++) { //playing piles
 			g.drawImage(emptyIndicator, (220+(i*80)), 300, null);
 		}
+
+		//beginning to place cards on the board
+
+		
 
 
 
@@ -76,11 +97,9 @@ public class GameBoard implements Drawable, Updateable {
 	 */
 
 	public void justClicked(MouseEvent me) { //card width: 71, card height: 96
-		Rectangle hitBox = new Rectangle(me.getX(), me.getY(), 71, 96); 
-
-		//me.getX and me.getY apply to the position of the cursor, not the card position (we want the card's position)
 		Point p = me.getPoint();
-		
+
+
 		System.out.println("You just clicked "+p);
 
 
@@ -90,7 +109,7 @@ public class GameBoard implements Drawable, Updateable {
 	// this update will be called each time the timer in the KlondikeGame
 	// goes off.  This will be convenient for animating.
 	public void update(ActionEvent a) {
-		
+
 		
 	}
 

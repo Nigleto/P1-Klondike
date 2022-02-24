@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public abstract class PlayingPile extends Pile{
-    private Pile pile1;
+    private Pile currentPile;
     private int x;
     private int y;
 
@@ -12,5 +12,11 @@ public abstract class PlayingPile extends Pile{
         this.y = y;
     }
 
-    //functions to handle movement of cards?
+    public void addSmallPile(Pile p) { //adds the "smaller" Pile p to the current bigger pile
+        Card current = this.getPile().get(0);
+        Card end = p.getPile().get(-1);
+        if (current.isBlack() != end.isBlack() && current.getValue()-1 == end.getValue()) {
+            this.currentPile.addPile(p);
+        }
+    }
 }

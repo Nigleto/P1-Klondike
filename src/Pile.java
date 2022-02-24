@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.awt.Graphics;
 /** A Pile is a collection of cards.  This needs to be
  * Drawable because it will be shown on the GUI. Put code
  * here that ALL Piles share.  The ways in which Piles are 
@@ -6,7 +7,7 @@ import java.util.ArrayList;
  * be implemented here.  Updateable may have empty implementation.
  * You WILL write subclasses of Pile
  */
-public class Pile{
+public class Pile{ //0 is the top card, the one we see
     
     //public boolean canAddCard(Card c);
     private ArrayList<Card> cards;
@@ -17,13 +18,32 @@ public class Pile{
     }
 
     public void add(Card x){ 
-        this.add(x); // I'm not sure if this would work...
+        this.getPile().add(x); // I'm not sure if this would work...
+    }
+
+    public void add(int i, Card x) {
+      this.getPile().add(i, x);
     }
 
     public ArrayList<Card> getPile(){
       return this.cards;
     }
 
+    public void drawTopCard(Graphics g) { //shows the top card
+      cards.get(0).draw(g);
+    }
+
+    public void addPile(Pile p) {
+      for (int i = 0; i < p.getPile().size(); i++) {
+        this.cards.add(p.getPile().get(i));
+      }
+    }
+
+    public Card deal() { //retrieves top card, removes it from the pile it was in
+      Card c = this.cards.get(0);
+      cards.remove(0);
+      return c;
+    }
     
 
     public void shuffle() {
@@ -64,10 +84,10 @@ public class Pile{
             cards.set(x, cards.get(1));
             cards.set(y, yo);
   
-        }
+          }
         }
       return;
-    }
+      }
     }
   }
 

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class DrawnCards extends Pile{
     ArrayList<Card> toBePlayed;
     private int x, y; 
-    //x values: 120, 195, 270, 345
+    //x value: 120
     //y value: 80
 
 
@@ -14,8 +14,8 @@ public class DrawnCards extends Pile{
     }
 
 
-    public void takeCard() {
-        toBePlayed.add(deck.deal());
+    public void takeCard(Deck d) {
+        toBePlayed.add(d.deal());
     }
 
     public void removeCard() {
