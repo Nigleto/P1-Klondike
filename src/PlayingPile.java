@@ -1,4 +1,4 @@
-public abstract class PlayingPile extends Pile{
+public class PlayingPile extends Pile{
     private Pile currentPile;
     private int x;
     private int y;
@@ -13,6 +13,12 @@ public abstract class PlayingPile extends Pile{
         Card end = p.getPile().get(-1);
         if (current.isBlack() != end.isBlack() && current.getValue()-1 == end.getValue()) {
             this.currentPile.addPile(p);
+        }
+    }
+
+    public void draw() {
+        for (int i = 0; i < this.getPile().size(); i++) {
+            
         }
     }
 }

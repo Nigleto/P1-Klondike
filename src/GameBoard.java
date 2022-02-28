@@ -44,6 +44,14 @@ public class GameBoard implements Drawable, Updateable {
 			hPile = new TopRightAce(1, 691, 80);
 			dPile = new TopRightAce(2, 782, 80);
 			cPile = new TopRightAce(3, 873, 80);
+			pile1 = new PlayingPile(220, 300);
+			pile2 = new PlayingPile(300, 300);
+			pile3 = new PlayingPile(380, 300);
+			pile4 = new PlayingPile(460, 300);
+			pile5 = new PlayingPile(540, 300);
+			pile6 = new PlayingPile(620, 300);
+			pile7 = new PlayingPile(700, 300);
+
 
 			// INITIALIZING THE PLAYING PILES BELOW
 			pile1.getPile().add(d.deal());
