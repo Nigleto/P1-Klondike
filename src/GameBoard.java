@@ -19,6 +19,13 @@ public class GameBoard implements Drawable, Updateable {
 	private Pile hPile;
 	private Pile dPile;
 	private Pile cPile;
+	private Pile pile1;
+    private Pile pile2;
+    private Pile pile3;
+    private Pile pile4;
+    private Pile pile5;
+    private Pile pile6;
+    private Pile pile7;
 	
 	 
 	private int numdraws=0;
@@ -37,6 +44,27 @@ public class GameBoard implements Drawable, Updateable {
 			hPile = new TopRightAce(1, 691, 80);
 			dPile = new TopRightAce(2, 782, 80);
 			cPile = new TopRightAce(3, 873, 80);
+
+			// INITIALIZING THE PLAYING PILES BELOW
+			pile1.getPile().add(d.deal());
+        	pile2.getPile().add(d.deal());
+        	pile2.getPile().add(d.deal());
+        	for(int i=0; i<3; i++){
+            	pile3.getPile().add(d.deal()); 
+        	}
+			for(int i=0; i<4; i++){
+            	pile4.getPile().add(d.deal()); 
+        	}
+			for(int i=0; i<5; i++){
+            	pile5.getPile().add(d.deal()); 
+        	}
+			for(int i=0; i<6; i++){
+            	pile6.getPile().add(d.deal()); 
+        	}
+			for(int i=0; i<7; i++){
+            	pile7.getPile().add(d.deal()); 
+        	}
+			// INITIALIZING PLAYING PILES ABOVE
 
 		
 			
