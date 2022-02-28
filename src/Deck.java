@@ -15,7 +15,7 @@ public class Deck extends Pile{
             deck.add(new Card(i, x, 0, 0));
           } 
         }
-        deck.shuffle();
+        deck.shuffle();  
       }
 
 
