@@ -1,7 +1,3 @@
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.util.*;
-
 public class Deck extends Pile{
     private Pile deck;
     private int x, y;
@@ -14,9 +10,9 @@ public class Deck extends Pile{
     }
 
     private void initDeck() {
-        for(int i =0; i<5;i++){ // 5 since there are 4 suits in a deck
-          for(int x=2 ; x<12;x++){ //15 since there are 14 cards in each suit
-            deck.add(new Card(i, x+2, 0, 0));
+        for(int i =0; i<4;i++){ 
+          for(int x=1; x<=13;x++){ //error is here
+            deck.add(new Card(i, x, 0, 0));
           } 
         }
         deck.shuffle();

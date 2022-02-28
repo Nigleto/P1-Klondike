@@ -10,7 +10,7 @@ public class DrawnCards extends Pile{
     public DrawnCards(int x, int y) {
         this.x = x;
         this.y = y;
-        toBePlayed = new ArrayList();
+        toBePlayed = new ArrayList<Card>();
     }
 
 

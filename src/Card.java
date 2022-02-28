@@ -4,8 +4,6 @@ import java.io.File;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 import java.io.IOException;
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.awt.Rectangle;
 
 
@@ -18,31 +16,14 @@ public class Card implements Drawable, Updateable {
     private Image cardFront;
     private Image cardBack;
     private int x, y; //x and y coordinatese of where the card is on the board
-    private Rectangle hitbox;
 
     public Card(int suite, int value, int x, int y) {
         this.suite = suite; //0 for spades, 1 for hearts, 2 for diamonds, 3 for clubs
         this.value = value; //1 for ace, 2-10 for regular cards, 11-13 for Jack, Queen, King
-        this.isShowing = false;
         this.x = x;
         this.y = y;
-        hitbox = new Rectangle(x, y, 71, 96); 
-        switch(this.suite) {
-            case 0:
-                this.isBlack = false;
-                break;
-            case 1:
-                this.isBlack = true;
-                break;
-            case 2:
-                this.isBlack = true;
-                break;
-            case 3:
-                this.isBlack = false;
-                break;
-        }
-
-        String cardInfo = "images/cards/";
+        this.isBlack = this.suite == 0 || this.suite == 3;
+        String cardInfo = "../images/cards/";
         switch(this.suite) {
             case 0:
                 cardInfo += "s";
@@ -57,29 +38,24 @@ public class Card implements Drawable, Updateable {
                 cardInfo += "c";
                 break;
         }
-
-        if (this.suite < 11) {
-            cardInfo += this.value;
+        switch(this.value) {
+            case 11:
+                cardInfo += "j";
+                break;
+            case 12:
+                cardInfo += "q";
+                break;
+            case 13:
+                cardInfo += "k";
+                break;
+            default:
+                cardInfo += this.value;
+                break;
         }
-        else {
-            switch(this.value) {
-                case 11:
-                    cardInfo += "j";
-                    break;
-                case 12:
-                    cardInfo += "q";
-                    break;
-                case 13:
-                    cardInfo += "k";
-                    break;
-            }
-        }
-
         cardInfo += ".png";
-
         try {
 			cardFront = ImageIO.read(new File(cardInfo));
-			cardBack = ImageIO.read(new File("images/cards/b1fv.png"));
+			cardBack = ImageIO.read(new File("../images/cards/b1fv.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -102,12 +78,10 @@ public class Card implements Drawable, Updateable {
     
     @Override
     public void draw(Graphics g) {
-        if (isShowing = true) {
+        if (isShowing) {
             g.drawImage(cardFront, this.x, this.y, null);
         }
-        else {
-            g.drawImage(cardBack, this.x, this.y, null);
-        }
+        g.drawImage(cardBack, this.x, this.y, null);
         // String cardInfo = "images/cards/";
         // switch(this.suite) {
         //     case 0:
@@ -169,11 +143,15 @@ public class Card implements Drawable, Updateable {
     }
 	
     public Rectangle getHitBox() {
-        return this.hitbox;
+        return new Rectangle(x,y,71,96);
     }
 
     public boolean isBlack() {
         return isBlack;
+    }
+
+    public boolean containsPoint(int x, int y) {
+        return this.getHitBox().contains(x, y);
     }
 
 }

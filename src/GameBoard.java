@@ -4,12 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class GameBoard implements Drawable, Updateable {
 	
@@ -33,7 +29,7 @@ public class GameBoard implements Drawable, Updateable {
 		try {
 			// testImage = ImageIO.read(new File("images/cards/dj.png"));
 			// backImage = ImageIO.read(new File("images/cards/b1fv.png"));
-			BufferedImage sheet = ImageIO.read(new File("images/cards/cardsheet.png"));
+			BufferedImage sheet = ImageIO.read(new File("../images/cards/cardsheet.png"));
 			emptyIndicator = sheet.getSubimage(71*10, 96*4, 71, 96);
 			d = new Deck(20, 80);
 			drawnPile = new DrawnCards(120, 80);
@@ -75,7 +71,7 @@ public class GameBoard implements Drawable, Updateable {
 
 		//beginning to place cards on the board
 
-		
+		d.deal().draw(g);
 
 
 
@@ -98,8 +94,10 @@ public class GameBoard implements Drawable, Updateable {
 
 	public void justClicked(MouseEvent me) { //card width: 71, card height: 96
 		Point p = me.getPoint();
+		int x = me.getX();
+		int y = me.getY();
 
-
+		
 		System.out.println("You just clicked "+p);
 
 

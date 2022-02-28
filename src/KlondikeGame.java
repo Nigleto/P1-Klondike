@@ -1,9 +1,6 @@
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.event.*;
-import java.io.File;
-
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -41,7 +38,7 @@ public class KlondikeGame {
 			}
 		});
 		panel.setPreferredSize(DIM);
-		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		frame.pack();
 		frame.setVisible(true);
