@@ -69,6 +69,13 @@ public class Card implements Drawable, Updateable {
     public int getValue() {
         return this.value;
     }
+
+    public Image getImage() {
+        if (this.isShowing == false) {
+            return this.cardBack;
+        }
+        return this.cardFront;
+    }
     
     
     @Override

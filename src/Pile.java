@@ -10,7 +10,7 @@ import java.awt.Graphics;
 public class Pile{ //0 is the top card, the one we see
     
   //public boolean canAddCard(Card c);
-  private ArrayList<Card> cards;
+  protected ArrayList<Card> cards;
 
 
   public Pile(){

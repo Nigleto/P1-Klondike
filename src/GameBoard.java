@@ -13,73 +13,53 @@ public class GameBoard implements Drawable, Updateable {
 	Image testImage, backImage, emptyIndicator;	
 	public static final int OFFSET_X = 40, OFFSET_Y = 20;
 	private Deck d;
-	private Pile drawnPile;
-	private Pile playPile;
-	private Pile sPile;
-	private Pile hPile;
-	private Pile dPile;
-	private Pile cPile;
-	private Pile pile1;
-    private Pile pile2;
-    private Pile pile3;
-    private Pile pile4;
-    private Pile pile5;
-    private Pile pile6;
-    private Pile pile7;
-	
-	 
+	private DrawnCards drawnPile;
+	private TopRightAce[] allAces = new TopRightAce[4];
+	private PlayingPile[] allPlayingPiles = new PlayingPile[7]; 
 	private int numdraws=0;
 	
 	
 	
 	public GameBoard() {
 		try {
-			// testImage = ImageIO.read(new File("images/cards/dj.png"));
-			// backImage = ImageIO.read(new File("images/cards/b1fv.png"));
 			BufferedImage sheet = ImageIO.read(new File("../images/cards/cardsheet.png"));
 			emptyIndicator = sheet.getSubimage(71*10, 96*4, 71, 96);
-			d = new Deck(20, 80);
-			drawnPile = new DrawnCards(120, 80);
-			sPile = new TopRightAce(0, 600, 80);
-			hPile = new TopRightAce(1, 691, 80);
-			dPile = new TopRightAce(2, 782, 80);
-			cPile = new TopRightAce(3, 873, 80);
-			pile1 = new PlayingPile(220, 300);
-			pile2 = new PlayingPile(300, 300);
-			pile3 = new PlayingPile(380, 300);
-			pile4 = new PlayingPile(460, 300);
-			pile5 = new PlayingPile(540, 300);
-			pile6 = new PlayingPile(620, 300);
-			pile7 = new PlayingPile(700, 300);
-
-
-			// INITIALIZING THE PLAYING PILES BELOW
-			pile1.getPile().add(d.deal());
-        	pile2.getPile().add(d.deal());
-        	pile2.getPile().add(d.deal());
-        	for(int i=0; i<3; i++){
-            	pile3.getPile().add(d.deal()); 
-        	}
-			for(int i=0; i<4; i++){
-            	pile4.getPile().add(d.deal()); 
-        	}
-			for(int i=0; i<5; i++){
-            	pile5.getPile().add(d.deal()); 
-        	}
-			for(int i=0; i<6; i++){
-            	pile6.getPile().add(d.deal()); 
-        	}
-			for(int i=0; i<7; i++){
-            	pile7.getPile().add(d.deal()); 
-        	}
-			// INITIALIZING PLAYING PILES ABOVE
-
-		
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		d = new Deck(20, 80);
+		drawnPile = new DrawnCards(120, 80);
+		// sPile = new TopRightAce(0, 600, 80);
+		// hPile = new TopRightAce(1, 691, 80);
+		// dPile = new TopRightAce(2, 782, 80);
+		// cPile = new TopRightAce(3, 873, 80);
+		// pile1 = new PlayingPile(220, 300);
+		// pile2 = new PlayingPile(300, 300);
+		// pile3 = new PlayingPile(380, 300);
+		// pile4 = new PlayingPile(460, 300);
+		// pile5 = new PlayingPile(540, 300);
+		// pile6 = new PlayingPile(620, 300);
+		// pile7 = new PlayingPile(700, 300);
+		// PlayingPile[] allPiles = new PlayingPile[] {
+		// 	pile1,
+		// 	pile2,
+		// 	pile3,
+		// 	pile4,
+		// 	pile5,
+		// 	pile6,
+		// 	pile7
+		// };
+		for(int i = 0; i < 7; i++) {
+			PlayingPile pile = new PlayingPile(220 + 80*i, 300);
+			allPlayingPiles[i] = pile;
+			for(int x = 0; x < i+1; x++) {
+				allPlayingPiles[i].add(d.deal());
+			}
+		}
+		for(int i = 0; i < 4; i++) {
+			TopRightAce pile = new TopRightAce(i, 600 + 91*i, 80);
+			allAces[i] = pile;
+		}
 	}
 
 	/** @param g Graphics context onto which all Objects in the game
@@ -106,8 +86,12 @@ public class GameBoard implements Drawable, Updateable {
 		}
 
 		//beginning to place cards on the board
-
-		d.deal().draw(g);
+		// System.out.println(pile1);
+		// System.out.println(pile1.getPile());
+		// System.out.println(pile1.getPile().get(0));
+		// System.out.println(pile1.getPile().get(0).getValue());
+		// System.out.println("hello");
+		// pile1.draw(g);
 
 
 
