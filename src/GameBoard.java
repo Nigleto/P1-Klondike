@@ -29,26 +29,6 @@ public class GameBoard implements Drawable, Updateable {
 		}
 		d = new Deck(20, 80);
 		drawnPile = new DrawnCards(120, 80);
-		// sPile = new TopRightAce(0, 600, 80);
-		// hPile = new TopRightAce(1, 691, 80);
-		// dPile = new TopRightAce(2, 782, 80);
-		// cPile = new TopRightAce(3, 873, 80);
-		// pile1 = new PlayingPile(220, 300);
-		// pile2 = new PlayingPile(300, 300);
-		// pile3 = new PlayingPile(380, 300);
-		// pile4 = new PlayingPile(460, 300);
-		// pile5 = new PlayingPile(540, 300);
-		// pile6 = new PlayingPile(620, 300);
-		// pile7 = new PlayingPile(700, 300);
-		// PlayingPile[] allPiles = new PlayingPile[] {
-		// 	pile1,
-		// 	pile2,
-		// 	pile3,
-		// 	pile4,
-		// 	pile5,
-		// 	pile6,
-		// 	pile7
-		// };
 		for(int i = 0; i < 7; i++) {
 			PlayingPile pile = new PlayingPile(220 + 80*i, 300);
 			allPlayingPiles[i] = pile;
@@ -76,15 +56,16 @@ public class GameBoard implements Drawable, Updateable {
 		// g.drawImage(backImage, 105, 100, null);
 		g.drawImage(emptyIndicator, 20, 80, null); //deck 
 		g.drawImage(emptyIndicator, 120, 80, null); //drawn pile
-
+		
+		
 		for (int i = 0; i < 4; i++) { //ace pile
 			g.drawImage(emptyIndicator, (600+(i*91)), 80, null);
 		}
-
+		
 		for (int i = 0; i < 7; i ++) { //playing piles
 			g.drawImage(emptyIndicator, (220+(i*80)), 300, null);
 		}
-
+		
 		//beginning to place cards on the board
 		// System.out.println(pile1);
 		// System.out.println(pile1.getPile());
@@ -92,7 +73,8 @@ public class GameBoard implements Drawable, Updateable {
 		// System.out.println(pile1.getPile().get(0).getValue());
 		// System.out.println("hello");
 		// pile1.draw(g);
-
+		
+		d.draw(g);
 
 
 

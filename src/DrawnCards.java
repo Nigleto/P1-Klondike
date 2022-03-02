@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.awt.Graphics;
 
 public class DrawnCards extends Pile{
     ArrayList<Card> toBePlayed;
@@ -20,6 +21,10 @@ public class DrawnCards extends Pile{
 
     public void removeCard() {
         toBePlayed.remove(0);
+    }
+
+    public void draw(Graphics g) {
+        g.drawImage(this.getPile().get(0).getImage(), this.x, this.y, null);
     }
 
 
